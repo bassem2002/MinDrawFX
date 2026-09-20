@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.canvas.Canvas?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToolBar?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+
+        fx:controller="controller.MainController"
+
+        prefWidth="1450"
+        prefHeight="850"
+
+        stylesheets="@style.css">
+
+    <top>
+
+        <VBox>
+
+            <MenuBar>
+
+                <Menu text="File">
+
+                    <MenuItem
+                            text="Save"
+                            onAction="#handleSave"
+                    />
+
+                    <MenuItem
+                            text="Load"
+                            onAction="#handleLoad"
+                    />
+
+                    <SeparatorMenuItem />
+
+                    <MenuItem
+                            text="Clear Canvas"
+                            onAction="#handleClear"
+                    />
+
+                    <SeparatorMenuItem />
+
+                    <MenuItem
+                            text="Export PNG"
+                            onAction="#handleExport"
+                    />
+
+                    <SeparatorMenuItem />
+
+                    <MenuItem
+                            text="Exit"
+                            onAction="#handleExit"
+                    />
+
+                </Menu>
+
+            </MenuBar>
+
+            <ToolBar>
+
+                <Label
+                        text="MiniDrawFX Professional"
+                        styleClass="logo-label"
+                />
+
+                <Button
+                        text="💾 Save"
+                        onAction="#handleSave"
+                        styleClass="toolbar-button"
+                />
+
+                <Button
+                        text="📂 Load"
+                        onAction="#handleLoad"
+                        styleClass="toolbar-button"
+                />
+
+                <Button
+                        text="🖼 Export"
+                        onAction="#handleExport"
+                        styleClass="toolbar-button"
+                />
+
+                <Button
+                        text="🗑 Clear"
+                        onAction="#handleClear"
+                        styleClass="toolbar-button"
+                />
+
+            </ToolBar>
+
+        </VBox>
+
+    </top>
+
+    <left>
+
+        <VBox
+                spacing="18"
+                prefWidth="220"
+                styleClass="sidebar">
+
+            <padding>
+
+                <Insets
+                        top="20"
+                        right="20"
+                        bottom="20"
+                        left="20"
+                />
+
+            </padding>
+
+            <Label
+                    text="MiniDraw Tools"
+                    styleClass="sidebar-title"
+            />
+
+            <Label
+                    text="SHAPES"
+                    styleClass="section-label"
+            />
+
+            <Button
+                    fx:id="rectangleButton"
+                    text="▭ Rectangle"
+                    onAction="#handleRectangle"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    fx:id="circleButton"
+                    text="◯ Circle"
+                    onAction="#handleCircle"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    fx:id="lineButton"
+                    text="╱ Line"
+                    onAction="#handleLine"
+                    styleClass="tool-button"
+            />
+
+            <Label
+                    text="ACTIONS"
+                    styleClass="section-label"
+            />
+
+            <Button
+                    text="↶ Undo"
+                    onAction="#handleUndo"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    text="↷ Redo"
+                    onAction="#handleRedo"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    text="🗑 Delete"
+                    onAction="#handleDelete"
+                    styleClass="tool-button"
+            />
+
+            <Label
+                    text="DECORATORS"
+                    styleClass="section-label"
+            />
+
+            <Button
+                    text="✨ Glow"
+                    onAction="#toggleGlow"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    text="🌑 Shadow"
+                    onAction="#toggleShadow"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    text="🟥 Red Border"
+                    onAction="#toggleRedBorder"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    text="📏 Dashed"
+                    onAction="#toggleDashed"
+                    styleClass="tool-button"
+            />
+
+            <Button
+                    text="🖍 Bold"
+                    onAction="#toggleBold"
+                    styleClass="tool-button"
+            />
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <StackPane
+                styleClass="canvas-container">
+
+            <Canvas
+                    fx:id="canvas"
+                    width="1050"
+                    height="720"
+            />
+
+        </StackPane>
+
+    </center>
+
+    <right>
+
+        <VBox
+                spacing="15"
+                prefWidth="220"
+                styleClass="history-panel">
+
+            <padding>
+
+                <Insets
+                        top="15"
+                        right="15"
+                        bottom="15"
+                        left="15"
+                />
+
+            </padding>
+
+            <Label
+                    text="HISTORY"
+                    styleClass="history-title"
+            />
+
+            <ListView
+                    fx:id="historyList"
+
+                    VBox.vgrow="ALWAYS"
+            />
+
+        </VBox>
+
+    </right>
+
+    <bottom>
+
+        <HBox
+                alignment="CENTER_LEFT"
+                styleClass="status-bar">
+
+            <padding>
+
+                <Insets
+                        top="10"
+                        right="10"
+                        bottom="10"
+                        left="10"
+                />
+
+            </padding>
+
+            <Label
+                    fx:id="statusLabel"
+                    text="Application prête"
+            />
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>

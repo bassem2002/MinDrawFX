@@ -1,0 +1,45 @@
+# MinDrawFX - Java / JavaFX
+
+# Compiled files
+*.class
+/bin/
+/out/
+/target/
+/build/
+
+# Eclipse
+.metadata/
+.settings/
+.classpath
+.project
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Gradle
+.gradle/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime files
+*.db
+export.png
+shapes.txt
+
+# Archives
+*.zip
+*.rar
+*.7z
